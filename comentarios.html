@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comentários</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color:pink;
+        }
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .comentario {
+            background-color: white;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<nav>
+        <p> <a href="index.html">Inicio</a></p>
+    <p>  <a
+      href="sobre.html">Sobre</a></p>
+    <p>  <a
+      href="serviços.html">Serviços</a></p>
+    <p> <a
+      href="contacto.html">Contacto</a></p>
+  </nav>
+<body>
+    <h1>Comentários dos Usuários</h1>
+
+    <form id="formComentario">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="comentario">Comentário:</label>
+        <textarea id="comentario" name="comentario" rows="4" required></textarea>
+
+        <input type="submit" value="Enviar Comentário">
+    </form>
+
+    <div id="listaComentarios"></div>
+
+    <script>
+        document.getElementById('formComentario').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita o envio do formulário
+
+            const nome = document.getElementById('nome').value;
+            const comentario = document.getElementById('comentario').value;
+
+            const novoComentario = document.createElement('div');
+            novoComentario.classList.add('comentario');
+            novoComentario.innerHTML = `<strong>${nome}</strong>: ${comentario}`;
+
+            document.getElementById('listaComentarios').appendChild(novoComentario);
+
+            document.getElementById('formComentario').reset();
+        });
+    </script>
+</body>
+</html>
+
