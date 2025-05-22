@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encomendar</title>
+
+</head>
+<style>
+body{
+    background-color:pink;
+}
+</style>
+<nav>
+    <a href="index.html">Inicio</a>
+</nav>
+<body>
+
+<h2>Faça sua Encomenda de Gelassia!</h2>
+
+<form id="orderForm">
+   <label for="name">Seu Nome:</label>
+    <input type="text" id="name" name="name" required>
+    <p> <label for="localização">Localização:</label>
+        <input type="text"id="name"name="localização"required></p>
+     <p>  <label for="number">Contacto:</label>
+        <input type="number"id="number"name="Contacto"required></p>
+
+  <p>    <label for="flavor">Escolha o Sabor:</label></p>
+    <select id="flavor" name="flavor" required></p>
+        <option value="">Selecione um sabor</option>
+        <option value="chocolate">Chocolate</option>
+        <option value="banana">Banana</option>
+        <option value="abacate">Abacate</option>
+        <option value="maracujá">Maracujá</option>
+    </select>
+
+  <p> <label for="quantity">Quantidade:</label></p>
+    <input type="text" id="quantity" name="quantity" min="1" required>
+
+    <input type="submit" value="Enviar Encomenda">
+</form>
+
+<script>
+    document.getElementById('orderForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Evita o envio padrão do formulário
+
+        const name = document.getElementById('name').value;
+        const flavor = document.getElementById('flavor').value;
+        const quantity = document.getElementById('quantity').value;
+
+        // Aqui você pode adicionar a lógica para enviar os dados para um servidor ou API
+        alert(`Obrigado pela sua encomenda, ${name}! Você pediu gelassia(s) de ${flavor} ${quantity}.`);
+        
+        // Limpar o formulário após o envio
+        this.reset();
+    });
+</script>
+<i>Taxa adicional de entrega</i>
+</body>
+</html>
+
